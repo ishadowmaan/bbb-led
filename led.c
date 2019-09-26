@@ -11,7 +11,7 @@ main(int argc, char *argv[])
 	if (argc != 3) goto fail;
 
 	int n = atoi(argv[1]);
-	if (n > 3) goto fail;
+	if (n < 0 || n > 3) goto fail;
 
 	led_t l = led_make(n);
 
