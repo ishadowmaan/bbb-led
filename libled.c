@@ -6,6 +6,7 @@
 #define MAX_PATH 260
 #define LED_FMT "/sys/class/leds/beaglebone:green:usr%d"
 
+/* BBB has four LEDs: USR0-USR3 */
 static led_t leds[4];
 
 static void led_remove_trigger(led_t l);
@@ -48,6 +49,7 @@ led_write(led_t l, char *f, char *v)
 {
 	FILE *fp;
 	char p[MAX_PATH];
+
 	sprintf(p, "%s/%s", l, f);
 	fp = fopen(p, "w");
 	fprintf(fp, "%s", v);
